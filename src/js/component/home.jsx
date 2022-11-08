@@ -14,12 +14,16 @@ function Home() {
 	);
 };
 
-function ToDosList(){
-	const [tareas, setTareas] = useState([]);
-}
+
 
 
 export function ToDosList(){
+	const [tareas, setTareas] = useState([]);
+
+	const agregarTodos = tarea => {
+		console.log("Tarea agregada");
+		console.log(tarea); 
+	}
     return(
 		<>
 			<TareaFormulario />
@@ -27,7 +31,7 @@ export function ToDosList(){
 				{tareas.map((tarea) =>
 					<Todos texto={tarea.texto}
 					completada={tarea.tareaCompletada}/>
-					); 
+					) 
 				};
 			</div>
 		</>
