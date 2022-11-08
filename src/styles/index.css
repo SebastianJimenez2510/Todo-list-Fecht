@@ -1,17 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-};
-
-body{
-    background-color: rgb(39, 39, 37);
-    color: whitesmoke;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-};
-
 /* Estilos del Home */
-
 .toDos{
     display: flex;
     flex-wrap: wrap;
@@ -25,6 +12,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
 };
 
 
@@ -36,7 +24,7 @@ body{
     padding: 25px;
     margin: 10px;
     border-radius: 26px;
-    background-color: #d0d0d5;
+    background-color: black;
 };
 
 /*Estilos de Formulario */
@@ -51,11 +39,15 @@ body{
 .tarea-input{
     width: 350px;
     font-size: 18px;
-    background-color: white;
+    background-color: black;
     padding: 14px 32px 14px 16px;
     border-radius: 4px 0 0 4px;
     border: 2px solid;
     outline: none;
+      display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 };
 
 /*Estilos de ToDosList */
@@ -65,3 +57,5 @@ flex-wrap: wrap;
 justify-content: center;
 margin-top: 15px;
 }
+
+

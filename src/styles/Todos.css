@@ -19,10 +19,21 @@ font-size: 20px;
 display: flex;
 align-items: center;
 overflow-wrap: anywhere;
+color: white;
+}
+
+.todo-icon{
+    color: white;
 }
 
 /* Tarea Completada */
-.todos-container.completada{
-background-color: rgb(53, 237, 53);
-text-decoration: line-through;
+.completado{
+background-color: rgb(53, 237, 53) !important;
+text-decoration: line-through !important;
 }
+
+body{
+    background-color: rgb(39, 39, 37);
+    color: whitesmoke;
+    
+};
