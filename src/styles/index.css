@@ -6,16 +6,6 @@
     align-items: center ;
 }
 
-.title{
-    width: 100%;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Georgia, 'Times New Roman', Times, serif !important;
-};
-
-
 /* Lista de Tareas */
 
 .tareas-list {
@@ -25,7 +15,7 @@
     margin: 10px;
     border-radius: 26px;
     background-color: black;
-};
+}
 
 /*Estilos de Formulario */
 
@@ -34,7 +24,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-};
+}
 
 .tarea-input{
     width: 350px;
@@ -44,11 +34,11 @@
     border-radius: 4px 0 0 4px;
     border: 2px solid;
     outline: none;
-      display: flex;
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-};
+}
 
 /*Estilos de ToDosList */
 .todos-list-container{
@@ -56,6 +46,15 @@ display: flex;
 flex-wrap: wrap;
 justify-content: center;
 margin-top: 15px;
+}
+
+.title{
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
 }
 
 
