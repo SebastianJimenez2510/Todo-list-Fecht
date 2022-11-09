@@ -14,7 +14,7 @@
     padding: 25px;
     margin: 10px;
     border-radius: 26px;
-    background-color: black;
+    background-color: grey;
 }
 
 /*Estilos de Formulario */
@@ -29,7 +29,6 @@
 .tarea-input{
     width: 350px;
     font-size: 18px;
-    background-color: black;
     padding: 14px 32px 14px 16px;
     border-radius: 4px 0 0 4px;
     border: 2px solid;
