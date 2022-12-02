@@ -62,12 +62,12 @@ export function ToDosList(){
 		  if (respuesta.ok) {
 			let respuestaJSON = await respuesta.json();
 			console.log(respuestaJSON);
-			console.log(listTodos);
+			console.log(tareas);
 			setListTodos(respuestaJSON);
-			console.log(listTodos);
+			console.log(tareas);
 		  } else {
 			console.log("respuesta fallida");
-			setListTodos([]);
+			setTareas([]);
 		  }
 		} catch {
 		  (err) => console.log(err);
@@ -75,11 +75,12 @@ export function ToDosList(){
 	  };
 
 		const agregarTodos = async tarea => {
-		console.log(tarea);
-		if(tarea.texto.trim()){
-		tarea.texto = tarea.texto.trim();
-
-		const todosActualizados = [tarea, ...tareas];
+		let todosActualizados = tareas.slice()
+		
+		todosActualizados.push(
+			tarea
+			
+		);
 		setTareas(todosActualizados);
 
 		let URI = `${BASE_URL}user/${usuario}`;
@@ -91,17 +92,22 @@ export function ToDosList(){
 		});
 
 		if (respuesta.ok) {
-			<Alert severity="success">Se agrego exitosamente la tarea!</Alert>
+			alert("Se agrego exitosamente la tarea!")
 
 			traerListaTareas();
 		} else {
-			<Alert severity="error">Error al agregar tarea!</Alert>
+			alert("Error al agregar la tarea!")
 		}
-		};
+	
 	};
 
 	const eliminarTarea = async id => {
 		let URI = `${BASE_URL}user/${usuario}`;
+
+		const todosActualizados =  tareas.filter((item, index) => {
+			return index !== id;
+		  });
+		
 
 		if (todosActualizados.length > 0){
 			try {
@@ -112,10 +118,10 @@ export function ToDosList(){
 				});
 
 			if (respuesta.ok) {
-				<Alert severity="success">Se elimino exitosamente la tarea!</Alert>
+				alert("Se elimino exitosamente la tarea!")
 				traerListaTareas();
 			} else {
-				<Alert severity="error">Error!</Alert>
+				alert("Error al eliminar la tarea")
 			}	
 			} catch {
 				(e) => console.log(e); 
@@ -124,11 +130,9 @@ export function ToDosList(){
 			let respuesta = await fetch(URI, {
 				method: "DELETE",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(todosActualizados)
 			});
 		}
-		const todosActualizados =  tareas.filter(tarea => tarea.id !== id);
-		setTareas(todosActualizados);
+		
 	};
 
 	useEffect(() => {
@@ -138,10 +142,10 @@ export function ToDosList(){
 	
 
 	const completarTarea = id => { 
-		const todosActualizados = tareas.map(tarea => {
+		let todosActualizados = tareas.map(tarea => {
 			if(tarea.id === id){
 				console.log(tarea)
-				tarea.completado = !tarea.completado;
+				tarea.done = !tarea.done;
 			}
 			return tarea;
 		});
@@ -149,14 +153,25 @@ export function ToDosList(){
 	};
     return(
 		<>
+			<div className="card">
+      		<form
+        		onSubmit={(e) => {
+         		crearUsuario(e);
+        		}}
+      		>
+        		<input type="text" placeholder="Nombre de usuario" name="username" />
+        		<button type="submit">Crear Usuario</button>
+      			</form>
+	  		</div>
+		
 			<TareaFormulario onSubmit={agregarTodos} />
 			<div className="todos-list-container">
-				{tareas.map((tarea) =>
+				{tareas.map((tarea, indice) =>
 					<Todos 
-					key={tarea.id}
-					id={tarea.id}
-					texto={tarea.texto}
-					completado={tarea.completado}
+					key={indice}
+					id={indice}
+					texto={tarea.label}
+					completado={tarea.done}
 					completarTarea={completarTarea}
 					eliminarTarea={eliminarTarea}
 					/>

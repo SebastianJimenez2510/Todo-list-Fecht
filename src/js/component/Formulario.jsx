@@ -13,9 +13,8 @@ function TareaFormulario(props){
 		e.preventDefault();
 		
 		const tareaNueva = {
-			id: uuidv4(),
-			texto: input,
-			completado: false
+			label: input,
+			done: false
 		}
 		props.onSubmit(tareaNueva);
 	};
